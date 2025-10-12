@@ -1,0 +1,40 @@
+{
+	"schemaVersion": 1,
+	"id": "magec",
+	"version": "${version}",
+	"name": "magec",
+	"description": "This is an example description! Tell everyone what your mod is about!",
+	"authors": [
+		"Me!"
+	],
+	"contact": {
+		"homepage": "https://fabricmc.net/",
+		"sources": "https://github.com/FabricMC/fabric-example-mod"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/magec/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"crit.magec.Magec"
+		],
+		"client": [
+			"crit.magec.client.MagecClient"
+		],
+		"fabric-datagen": [
+			"crit.magec.MagecDataGenerator"
+		]
+	},
+	"mixins": [
+		"magec.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.17.2",
+		"minecraft": "~1.21.8",
+		"java": ">=21",
+		"fabric-api": "*"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}
