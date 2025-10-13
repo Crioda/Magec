@@ -21,5 +21,6 @@ public class ModComponents {
     );
 
 
+
     public static void initialize() {}
 }

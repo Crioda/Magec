@@ -1,4 +1,9 @@
 {
   "item.magec.contract": "Contract",
-  "item.magec.contact.tooltip": "Bound to: %1$s"
+  "item.magec.chisel": "Chisel",
+  "item.magec.bedrock_shard": "Bedrock Shard",
+  "block.magec.cracked_bedrock": "Cracked Bedrock",
+  "block.magec.candle": "Candle",
+  "item.magec.contact.tooltip": "Bound to: %1$s",
+  "itemgroup.magec.items": "Magec"
 }

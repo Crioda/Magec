@@ -1,0 +1,12 @@
+{
+  "parent": "minecraft:block/cube",
+  "textures": {
+    "down": "magec:block/cracked_bedrock_down",
+    "east": "magec:block/cracked_bedrock_east",
+    "north": "magec:block/cracked_bedrock_north",
+    "particle": "magec:block/cracked_bedrock_particle",
+    "south": "magec:block/cracked_bedrock_south",
+    "up": "magec:block/cracked_bedrock_up",
+    "west": "magec:block/cracked_bedrock_west"
+  }
+}

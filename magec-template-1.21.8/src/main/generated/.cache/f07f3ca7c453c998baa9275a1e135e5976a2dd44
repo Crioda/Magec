@@ -1,3 +1,10 @@
 // 1.21.8	-999999999-01-01T00:00:00	magec/Model Definitions
+722b69be9a40650cde54475420435209fa046ca9 assets/magec/blockstates/cracked_bedrock.json
+926f25afa1608c0500816385a0434534f7d1ef08 assets/magec/items/bedrock_shard.json
+a5b927656cd0ef112341ff164e6b1f326ba3ffb6 assets/magec/items/chisel.json
 b8f2565634686e8c203d9974d5246993a056a25c assets/magec/items/contract.json
+f5efabf18cc35adc209b304e2181dd487071a8e4 assets/magec/items/cracked_bedrock.json
+09eccbfe9a8202569c72f3351b4efb75f0ff9f46 assets/magec/models/block/cracked_bedrock.json
+0933e5fa656eec05df1f7cf07f4a5b424120f2bf assets/magec/models/item/bedrock_shard.json
+2317e1c37c20b0c0d9f269c652ebab7555344bee assets/magec/models/item/chisel.json
 2bf2ff339b35c02dc3c2cf2d0cc554db9bb861f8 assets/magec/models/item/contract.json

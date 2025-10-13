@@ -1,7 +1,9 @@
 package crit.magec;
 
+import crit.magec.block.ModBlocks;
 import crit.magec.components.ModComponents;
 import crit.magec.effect.TetheredEffect;
+import crit.magec.item.ModItemGroup;
 import crit.magec.item.ModItems;
 import net.fabricmc.api.ModInitializer;
 
@@ -30,7 +32,8 @@ public class Magec implements ModInitializer {
 	@Override
 	public void onInitialize() {
 		ModItems.initialize();
+		ModBlocks.initialize();
 		ModComponents.initialize();
-
+		ModItemGroup.registerItemGroups();
 	}
 }
