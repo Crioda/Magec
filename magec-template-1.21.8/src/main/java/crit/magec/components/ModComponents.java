@@ -20,7 +20,5 @@ public class ModComponents {
             ComponentType.<String>builder().codec(Codec.STRING).build()
     );
 
-
-
     public static void initialize() {}
 }

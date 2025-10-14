@@ -29,19 +29,19 @@ public class Contract extends Item {
     public ActionResult use(World world, PlayerEntity user, Hand hand) {
         ItemStack stack = user.getStackInHand(hand);
         String boundTo = stack.get(ModComponents.BOUND_TO_NAME);
+        if ("Unbound".equals(boundTo)) {
+            user.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 10, 1);
+        }
         if (!world.isClient) {
             String uuid = user.getUuidAsString();
             String name = user.getNameForScoreboard();
             if ("Unbound".equals(boundTo)) {
-                user.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 10, 1);
                 stack.set(ModComponents.BOUND_TO_UUID, uuid);
                 stack.set(ModComponents.BOUND_TO_NAME, name);
+                return ActionResult.SUCCESS;
             }
         }
-        if ("Unbound".equals(boundTo)) {
-            user.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 10, 1);
-            return ActionResult.SUCCESS;
-        }
+
         //MinecraftClient.getInstance().setScreen(new CustomScreen(Text.empty()));
         return ActionResult.FAIL;
     }

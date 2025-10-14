@@ -1,14 +1,14 @@
 {
-	"required": true,
-	"package": "crit.magec.mixin",
-	"compatibilityLevel": "JAVA_21",
-	"mixins": [
-		"ContractDamageRework"
-	],
-	"injectors": {
-		"defaultRequire": 1
-	},
-	"overwrites": {
-		"requireAnnotations": true
+  "required": true,
+  "package": "crit.magec.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "ContractDamageRework"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "overwrites": {
+    "requireAnnotations": true
 	}
 }

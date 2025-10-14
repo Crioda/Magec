@@ -26,6 +26,7 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CONTRACT, Models.GENERATED);
         itemModelGenerator.register(ModItems.BEDROCK_SHARD, Models.GENERATED);
         itemModelGenerator.register(ModItems.CHISEL, Models.HANDHELD);
+        itemModelGenerator.register(ModItems.FIREBALL_WAND, Models.HANDHELD);
     }
 
 }

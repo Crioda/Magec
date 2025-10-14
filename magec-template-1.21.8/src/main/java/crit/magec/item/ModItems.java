@@ -4,6 +4,7 @@ import crit.magec.Magec;
 import crit.magec.components.ModComponents;
 import crit.magec.item.custom.Chisel;
 import crit.magec.item.custom.Contract;
+import crit.magec.item.custom.Wand;
 import net.minecraft.item.Item;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
@@ -25,6 +26,7 @@ public class ModItems {
             .component(ModComponents.BOUND_TO_NAME, "Unbound").component(ModComponents.BOUND_TO_UUID, "0").maxCount(1).fireproof());
 
     public static final Item CHISEL = register("chisel", Chisel::new, new Item.Settings());
+    public static final Item FIREBALL_WAND = register("fireball_wand", Wand::new, new Item.Settings());
 
     public static final Item BEDROCK_SHARD = register("bedrock_shard", Item::new, new Item.Settings().fireproof());
 
