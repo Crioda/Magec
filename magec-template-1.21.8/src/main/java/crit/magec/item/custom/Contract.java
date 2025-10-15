@@ -19,7 +19,6 @@ import net.minecraft.world.World;
 
 
 public class Contract extends Item {
-    public static final BooleanProperty SIGNED = BooleanProperty.of("signed");
     public Contract(Settings settings) {
         super(settings);
     }
@@ -33,13 +32,16 @@ public class Contract extends Item {
             user.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 10, 1);
         }
         if (!world.isClient) {
-            String uuid = user.getUuidAsString();
-            String name = user.getNameForScoreboard();
-            if ("Unbound".equals(boundTo)) {
-                stack.set(ModComponents.BOUND_TO_UUID, uuid);
-                stack.set(ModComponents.BOUND_TO_NAME, name);
-                return ActionResult.SUCCESS;
+            if (user.isSneaking()) {
+                String uuid = user.getUuidAsString();
+                String name = user.getNameForScoreboard();
+                if ("Unbound".equals(boundTo)) {
+                    stack.set(ModComponents.BOUND_TO_UUID, uuid);
+                    stack.set(ModComponents.BOUND_TO_NAME, name);
+                    return ActionResult.SUCCESS;
+                }
             }
+
         }
 
         //MinecraftClient.getInstance().setScreen(new CustomScreen(Text.empty()));
@@ -48,10 +50,11 @@ public class Contract extends Item {
 
    @Override
     public ActionResult useOnBlock(ItemUsageContext context) {
-        World world = context.getWorld();
-        PlayerEntity player = context.getPlayer();
+       String boundTo = context.getStack().get(ModComponents.BOUND_TO_NAME);
+       World world = context.getWorld();
+       PlayerEntity player = context.getPlayer();
        BlockPos pos = context.getBlockPos();
-            if (player.isSneaking()){
+            if (player.isSneaking() && !("Unbound".equals(boundTo))){
                 player.playSound(SoundEvents.ITEM_FIRECHARGE_USE, 1, 1);
                 world.addParticleClient(ParticleTypes.FLAME, pos.getX(), pos.getY(), pos.getZ(), 0, 0, 0);
                 if (!world.isClient) player.getMainHandStack().decrement(1);
@@ -65,13 +68,13 @@ public class Contract extends Item {
     public void postHit(ItemStack stack, LivingEntity target, LivingEntity attacker) {
 
         if (attacker.isSneaking() && !attacker.getWorld().isClient){
-            String targetuuid = target.getUuidAsString();
-            String attackercontractuuid = attacker.getMainHandStack().get(ModComponents.BOUND_TO_UUID);
-            if (targetuuid.equals(attackercontractuuid)) {
+            String targetUuid = target.getUuidAsString();
+            String attackerContractUuid = attacker.getMainHandStack().get(ModComponents.BOUND_TO_UUID);
+            if (targetUuid.equals(attackerContractUuid)) {
                 if (target.hasStatusEffect(Magec.TETHERED_EFFECT)){
                     target.removeStatusEffect(Magec.TETHERED_EFFECT);
                 }else {
-                    target.addStatusEffect(new StatusEffectInstance(Magec.TETHERED_EFFECT, 300, 1));
+                    target.addStatusEffect(new StatusEffectInstance(Magec.TETHERED_EFFECT, 72000, 0));
                 }
             }
         }

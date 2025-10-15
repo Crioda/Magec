@@ -48,77 +48,31 @@ public class SummoningCandle extends Block {
         int candles = 0;
         List<BlockPos> candlepos = new ArrayList<>();
         if (!world.isClient) {
-           /* if (player.isSneaking() && !state.get(LIT) && player.getMainHandStack().getItem() == Items.FLINT_AND_STEEL) {
+           if (player.isSneaking() && !state.get(LIT) && player.getMainHandStack().getItem() == Items.FLINT_AND_STEEL) {
                 world.setBlockState(pos, state.cycle(LIT));
                 player.stopUsingItem();
                 return ActionResult.SUCCESS;
             } else if (player.isSneaking() && state.get(LIT)) {
                 world.setBlockState(pos, state.cycle(LIT));
                 return ActionResult.SUCCESS;
-            }*/
+            }
             if (player.getMainHandStack().getItem() == Items.FLINT_AND_STEEL) return ActionResult.FAIL;
             for (int i = -6; i < 12; i++) {
-                if (world.getBlockState(pos.east(i).north(-5)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(-5);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(-4)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(-4);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(-3)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(-3);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(-2)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(-2);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(-1)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(-1);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(1)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(1);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(2)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(2);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(3)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(3);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(4)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(4);
-                    candlepos.add(candle);
-                }
-                if (world.getBlockState(pos.east(i).north(5)).isOf(ModBlocks.CANDLE)) {
-                    candles++;
-                    BlockPos candle = pos.east(i).north(5);
-                    candlepos.add(candle);
-                }
-                if (candles >= 8) {
-                    Vec3i candlespawn = getVec3i(pos, candlepos);
-                    world.spawnEntity(ModEntities.DIVINITYTEST.spawn((ServerWorld) world, new BlockPos(candlespawn), SpawnReason.TRIGGERED));
-                    break;
+                for (int j = -6; j < 12; j++) {
 
-                } else if (candles >= 4) {
+                    if (world.getBlockState(pos.east(i).north(j)).isOf(ModBlocks.CANDLE) &&
+                            world.getBlockState(pos.east(i).north(j)).get(LIT)) {
+                        candles++;
+                        BlockPos candle = pos.east(i).north(j);
+                        candlepos.add(candle);
+                    }
+                    if (candles >= 8) {
+                        Vec3i candlespawn = getVec3i(pos, candlepos);
+                        world.spawnEntity(ModEntities.DIVINITYTEST.spawn((ServerWorld) world, new BlockPos(candlespawn), SpawnReason.TRIGGERED));
+                        break;
+
+                    } else if (candles >= 4) {
+                    }
                 }
             }
         }

@@ -7,8 +7,11 @@ import net.minecraft.item.Item;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.BlockBox;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+
+import java.util.List;
 
 public class Wand extends Item {
     public Wand(Settings settings) {
@@ -20,7 +23,9 @@ public class Wand extends Item {
 
         if (!world.isClient) {
             Vec3d rotation = user.getRotationVec(1);
+
             world.spawnEntity(EntityType.FIREBALL.spawn((ServerWorld) world, user.getBlockPos().up(1), SpawnReason.SPAWN_ITEM_USE));
+
         }
 
         return super.use(world, user, hand);
