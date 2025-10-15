@@ -1,0 +1,29 @@
+{
+  "temperature": 0,
+  "downfall": 1000,
+  "has_precipitation": false,
+  "temperature_modifier": "frozen",
+  "creature_spawn_probability": 0,
+  "effects": {
+    "sky_color": 5593867,
+    "fog_color": 9071616,
+    "water_color": 7734533,
+    "water_fog_color": 10357258,
+    "grass_color": 7031040,
+    "foliage_color": 11798536,
+    "dry_foliage_color": 10042685,
+    "ambient_sound": "minecraft:ambient.basalt_deltas.mood",
+    "particle": {
+      "options": {
+        "type": "minecraft:soul"
+      },
+      "probability": 0.01
+    }
+  },
+  "spawners": {},
+  "spawn_costs": {},
+  "carvers": [
+    "minecraft:canyon"
+  ],
+  "features": []
+}

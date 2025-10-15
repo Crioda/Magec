@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:overworld",
+  "generator": {
+    "type": "minecraft:flat",
+    "settings": {
+      "biome": "magec:contracted",
+      "lakes": true,
+      "features": true,
+      "layers": [
+        {
+          "height": 10,
+          "block": "minecraft:grass_block"
+        }
+      ],
+      "structure_overrides": [
+        "minecraft:igloos",
+        "minecraft:end_cities"
+      ]
+    }
+  }
+}

@@ -2,6 +2,7 @@ package crit.magec.item;
 
 import crit.magec.Magec;
 import crit.magec.components.ModComponents;
+import crit.magec.item.custom.AtomSplitter;
 import crit.magec.item.custom.Contract;
 import crit.magec.item.custom.Wand;
 import net.minecraft.item.Item;
@@ -25,6 +26,7 @@ public class ModItems {
 
     public static final Item CHISEL = register("chisel", Item::new, new Item.Settings());
     public static final Item FIREBALL_WAND = register("fireball_wand", Wand::new, new Item.Settings());
+    public static final Item ATOMSPLITTER = register("atomsplitter", AtomSplitter::new, new Item.Settings());
 
     public static final Item BEDROCK_SHARD = register("bedrock_shard", Item::new, new Item.Settings().fireproof());
 

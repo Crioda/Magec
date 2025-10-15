@@ -1,0 +1,44 @@
+{
+  "parent": "minecraft:item/handheld",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [ 0, -90, 55 ],
+      "translation": [ 0.25, 5.5, 3.75 ],
+      "scale": [ 1, 1, 1 ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [0, 90, -55 ],
+      "translation": [ 0, 8.0, 1 ],
+      "scale": [ 1, 1, 1 ]
+    },
+    "firstperson_righthand": {
+      "rotation": [ 0, -90, 25 ],
+      "translation": [ 1.86, 8.4, 1.86 ],
+      "scale": [ 0.8, 0.8, 0.8 ]
+    },
+    "firstperson_lefthand": {
+      "rotation": [ 0, 90, -25 ],
+      "translation": [ 1.86, 8.4, 1.86 ],
+      "scale": [ 0.8, 0.8, 0.8 ]
+    },
+    "ground": {
+      "rotation": [ 0, 0, 0 ],
+      "translation": [ 0, 4, 0],
+      "scale":[ 1, 1, 1 ]
+    },
+    "gui": {
+      "translation": [0, 0, 0],
+      "scale": [1, 1, 1]
+    },
+    "head": {
+      "rotation": [ 0, 180, 0 ],
+      "translation": [ -9, 21, 7],
+      "scale":[ 2, 2, 1]
+    },
+    "fixed": {
+      "rotation": [ 0, 180, 0 ],
+      "translation": [ -4, 4, 0],
+      "scale": [ 1, 1, 1 ]
+    }
+  }
+}

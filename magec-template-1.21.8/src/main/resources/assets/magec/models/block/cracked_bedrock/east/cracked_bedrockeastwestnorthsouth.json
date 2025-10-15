@@ -1,0 +1,26 @@
+{
+	"credit": "Made with Blockbench",
+	"textures": {
+		"1": "magec:item/bedrock",
+		"2": "magec:item/bedrock",
+		"3": "magec:item/bedrock",
+		"4": "magec:item/bedrock",
+		"5": "minecraft:item/bedrock",
+		"6": "minecraft:item/bedrock",
+		"particle": "minecraft:item/bedrock"
+	},
+	"elements": [
+		{
+			"from": [0, 0, 0],
+			"to": [16, 16, 16],
+			"faces": {
+				"north": {"uv": [0, 0, 16, 16], "texture": "#1"},
+				"east": {"uv": [0, 0, 16, 16], "texture": "#2"},
+				"south": {"uv": [0, 0, 16, 16], "texture": "#3"},
+				"west": {"uv": [0, 0, 16, 16], "texture": "#4"},
+				"up": {"uv": [16, 16, 0, 0], "texture": "#5"},
+				"down": {"uv": [16, 0, 0, 16], "texture": "#6"}
+			}
+		}
+	]
+}

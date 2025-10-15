@@ -24,10 +24,6 @@ public class TetheredEffect extends StatusEffect {
     private double y = 0;
     private double z = 0;
 
-    @Override
-    public ParticleEffect createParticle(StatusEffectInstance effect) {
-        return super.createParticle(null);
-    }
 
     @Override
     public boolean canApplyUpdateEffect(int duration, int amplifier) {
@@ -47,8 +43,8 @@ public class TetheredEffect extends StatusEffect {
         //entity.teleport(x, y, z, false);
         //entity.setVelocity(new Vec3d(0,0,0));
         //entity.velocityModified = true;
-        Chained.isEnabled(true);
-        //entity.addStatusEffect(new StatusEffectInstance(Magec.TETHERED_EFFECT));
+        entity.setMovementSpeed(0);
+        entity.addStatusEffect(new StatusEffectInstance(Magec.TETHERED_EFFECT));
         return super.applyUpdateEffect(world, entity, amplifier);
     }
 

@@ -9,14 +9,6 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 @Mixin(PlayerInput.class)
 public abstract class Chained {
 	public boolean enabled = false;
-	public static boolean isEnabled(Boolean enabled){
-		if (isEnabled(true)){
-			enabled = true;
-		} else {
-			enabled = false;
-		}
-		return false;
-	}
 
 	@Inject(at = @At("HEAD"), method = "forward", cancellable = true)
 	private void noMovingForward(CallbackInfoReturnable<Boolean> cir) {

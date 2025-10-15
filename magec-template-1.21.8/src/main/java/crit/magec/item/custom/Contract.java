@@ -8,14 +8,21 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemUsageContext;
+import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.particle.ParticleTypes;
+import net.minecraft.registry.RegistryKey;
+import net.minecraft.registry.RegistryKeys;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.property.BooleanProperty;
 import net.minecraft.text.Text;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.Hand;
+import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
+
+import java.util.Set;
 
 
 public class Contract extends Item {
@@ -30,6 +37,10 @@ public class Contract extends Item {
         String boundTo = stack.get(ModComponents.BOUND_TO_NAME);
         if ("Unbound".equals(boundTo)) {
             user.playSound(SoundEvents.UI_CARTOGRAPHY_TABLE_TAKE_RESULT, 10, 1);
+        } else if (user.getPitch() == -90) {
+            RegistryKey<World> contractedKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("magec", "insidethecontract"));
+            ServerWorld contracted = user.getServer().getWorld(contractedKey);
+            user.teleport(contracted, user.getX(), user.getY(),user.getZ(), Set.of(PositionFlag.X), user.getYaw(), user.getPitch(), true);
         }
         if (!world.isClient) {
             if (user.isSneaking()) {
@@ -58,6 +69,7 @@ public class Contract extends Item {
                 player.playSound(SoundEvents.ITEM_FIRECHARGE_USE, 1, 1);
                 world.addParticleClient(ParticleTypes.FLAME, pos.getX(), pos.getY(), pos.getZ(), 0, 0, 0);
                 if (!world.isClient) player.getMainHandStack().decrement(1);
+
 
                 return ActionResult.SUCCESS;
             }

@@ -28,5 +28,4 @@ public class ModModelProvider extends FabricModelProvider {
         itemModelGenerator.register(ModItems.CHISEL, Models.HANDHELD);
         itemModelGenerator.register(ModItems.FIREBALL_WAND, Models.HANDHELD);
     }
-
 }
