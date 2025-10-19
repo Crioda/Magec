@@ -1,5 +1,5 @@
 {
-  "type": "minecraft:overworld",
+  "type": "magec:contracted",
   "generator": {
     "type": "minecraft:flat",
     "settings": {
@@ -7,14 +7,9 @@
       "lakes": true,
       "features": true,
       "layers": [
-        {
-          "height": 10,
-          "block": "minecraft:grass_block"
-        }
       ],
       "structure_overrides": [
-        "minecraft:igloos",
-        "minecraft:end_cities"
+        "magec:dungeon"
       ]
     }
   }

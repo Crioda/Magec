@@ -19,6 +19,11 @@ public class ModComponents {
             Identifier.of(Magec.MOD_ID, "bound_to_name"),
             ComponentType.<String>builder().codec(Codec.STRING).build()
     );
+    public static final ComponentType<Boolean> HAS_SOUL = Registry.register(
+            Registries.DATA_COMPONENT_TYPE,
+            Identifier.of(Magec.MOD_ID, "has_soul"),
+            ComponentType.<Boolean>builder().codec(Codec.BOOL).build()
+    );
 
     public static void initialize() {}
 }

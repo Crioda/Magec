@@ -2,6 +2,7 @@ package crit.magec;
 
 import crit.magec.block.ModBlocks;
 import crit.magec.components.ModComponents;
+import crit.magec.effect.Chartered;
 import crit.magec.effect.TetheredEffect;
 import crit.magec.entity.DivinityTest;
 import crit.magec.entity.ModEntities;
@@ -34,6 +35,8 @@ public class Magec implements ModInitializer {
 	public static final String MOD_ID = "magec";
 	public static final RegistryEntry<StatusEffect> TETHERED_EFFECT =
 			Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Magec.MOD_ID, "tethered_effect"), new TetheredEffect());
+	public static final RegistryEntry<StatusEffect> CHARTERED =
+			Registry.registerReference(Registries.STATUS_EFFECT, Identifier.of(Magec.MOD_ID, "chartered"), new Chartered());
 
 	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 

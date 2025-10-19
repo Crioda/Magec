@@ -22,6 +22,7 @@ public class ModEntities {
             FabricEntityType.Builder.createLiving(DivinityTest::new, SpawnGroup.MISC, UnaryOperator.identity())
                     .dimensions(1f, 3f).build(DIVINITYTEST_KEY));
 
+
     public static void registerModEntities() {
         Magec.LOGGER.info("Registering Mod Entities for " + Magec.MOD_ID);
     }

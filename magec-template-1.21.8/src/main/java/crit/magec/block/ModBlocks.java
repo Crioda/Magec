@@ -1,6 +1,9 @@
 package crit.magec.block;
 
 import crit.magec.Magec;
+import crit.magec.block.custom.Bigdoor;
+import crit.magec.block.custom.Decayingblock;
+import crit.magec.block.custom.NeurotoxinEmitter;
 import crit.magec.block.custom.SummoningCandle;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -24,10 +27,31 @@ public class ModBlocks {
             true
     );
 
+    public static final Block DECAY = register(
+            "decay",
+            Decayingblock::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE).strength(-1).hardness(-1).ticksRandomly(),
+            true
+    );
+
     public static final Block CANDLE = register(
             "candle",
             SummoningCandle::new,
             AbstractBlock.Settings.create().sounds(BlockSoundGroup.CANDLE),
+            true
+    );
+
+    public static final Block NEUROTOXIN_EMITTER = register(
+            "neurotoxin_emitter",
+            NeurotoxinEmitter::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.CANDLE),
+            true
+    );
+
+    public static final Block BIG_DOOR = register(
+            "big_door",
+            Bigdoor::new,
+            AbstractBlock.Settings.create().sounds(BlockSoundGroup.STONE),
             true
     );
 

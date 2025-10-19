@@ -1,0 +1,8 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "magec:item/starite",
+    "layer1": "magec:item/starite_glow"
+
+  }
+}

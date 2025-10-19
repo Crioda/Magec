@@ -3,7 +3,9 @@
   "package": "crit.magec.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
-    "ContractDamageRework"
+    "ContractDamageRework",
+    "HammerTime",
+    "NoLeaving"
   ],
   "injectors": {
     "defaultRequire": 1

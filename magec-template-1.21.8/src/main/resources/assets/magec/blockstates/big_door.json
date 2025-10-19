@@ -1,0 +1,11 @@
+{
+  "variants": {
+    "open=false": {
+      "model": "magec:block/bigdoor",
+      "y":90
+    },
+    "open=true": {
+      "model": "magec:block/bigdoor"
+    }
+  }
+}

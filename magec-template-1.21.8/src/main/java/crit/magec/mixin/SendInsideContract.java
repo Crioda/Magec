@@ -13,8 +13,10 @@ import net.minecraft.network.packet.s2c.play.PositionFlag;
 import net.minecraft.registry.RegistryKey;
 import net.minecraft.registry.RegistryKeys;
 import net.minecraft.server.world.ServerWorld;
+import net.minecraft.stat.Stats;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.math.GlobalPos;
 import net.minecraft.world.World;
 import org.jetbrains.annotations.NotNull;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,6 +27,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import javax.swing.text.Position;
+import java.util.Optional;
 import java.util.Set;
 
 @Mixin(PlayerEntity.class)
@@ -32,6 +35,8 @@ public abstract class SendInsideContract {
 
 
 	@Shadow @NotNull public abstract ItemStack getWeaponStack();
+
+	@Shadow public abstract void tick();
 
 	@Inject(at = @At("HEAD"), method = "damage", cancellable = true)
 	private void insideContract(ServerWorld world, DamageSource source, float amount, CallbackInfoReturnable<Boolean> cir) {
@@ -45,10 +50,19 @@ public abstract class SendInsideContract {
 			if (damageAfterHiton <= 0) {
 				RegistryKey<World> contractedKey = RegistryKey.of(RegistryKeys.WORLD, Identifier.of("magec", "insidethecontract"));
 				ServerWorld contracted = target.getServer().getWorld(contractedKey);
+				target.getInventory().dropAll();
+				target.setHealth(20);
+				target.incrementStat(Stats.DEATHS);
+				target.resetStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_DEATH));
+				target.resetStat(Stats.CUSTOM.getOrCreateStat(Stats.TIME_SINCE_REST));
+				target.setLastDeathPos(Optional.of(GlobalPos.create(target.getWorld().getRegistryKey(), target.getBlockPos())));
+				target.extinguish();
+				target.setOnFire(false);
 				target.teleport(contracted, target.getX(), target.getY(),target.getZ(), Set.of(PositionFlag.X), target.getYaw(), target.getPitch(), true);
 				cir.setReturnValue(false);
 			}
 		}
+
 
     }
 }

@@ -1,0 +1,15 @@
+{
+  "placement": {
+    "type": "minecraft:random_spread",
+    "salt": 2,
+    "separation": 16,
+    "spacing": 68,
+    "spread_type": "triangular"
+  },
+  "structures": [
+    {
+      "structure": "magec:dungeon",
+      "weight": 1
+    }
+  ]
+}
